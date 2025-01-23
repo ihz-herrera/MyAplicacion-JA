@@ -9,7 +9,7 @@ namespace MyAplicacion
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-
+            var frmClientes = 2;
         }
     }
 }
