@@ -37,6 +37,8 @@
             txtDireccion = new TextBox();
             label4 = new Label();
             btnGuardar = new Button();
+            txtEdad = new TextBox();
+            label5 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -53,14 +55,14 @@
             txtId.Location = new Point(82, 143);
             txtId.Name = "txtId";
             txtId.Size = new Size(80, 27);
-            txtId.TabIndex = 1;
+            txtId.TabIndex = 0;
             // 
             // txtNombre
             // 
             txtNombre.Location = new Point(82, 211);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(244, 27);
-            txtNombre.TabIndex = 3;
+            txtNombre.TabIndex = 1;
             // 
             // label2
             // 
@@ -76,7 +78,7 @@
             txtApellido.Location = new Point(82, 264);
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(244, 27);
-            txtApellido.TabIndex = 5;
+            txtApellido.TabIndex = 2;
             // 
             // label3
             // 
@@ -89,15 +91,15 @@
             // 
             // txtDireccion
             // 
-            txtDireccion.Location = new Point(82, 317);
+            txtDireccion.Location = new Point(82, 380);
             txtDireccion.Name = "txtDireccion";
             txtDireccion.Size = new Size(244, 27);
-            txtDireccion.TabIndex = 7;
+            txtDireccion.TabIndex = 4;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(82, 294);
+            label4.Location = new Point(82, 357);
             label4.Name = "label4";
             label4.Size = new Size(72, 20);
             label4.TabIndex = 6;
@@ -105,19 +107,37 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(82, 363);
+            btnGuardar.Location = new Point(82, 426);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(133, 29);
-            btnGuardar.TabIndex = 8;
+            btnGuardar.TabIndex = 5;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
             btnGuardar.Click += btnGuardar_Click;
+            // 
+            // txtEdad
+            // 
+            txtEdad.Location = new Point(82, 327);
+            txtEdad.Name = "txtEdad";
+            txtEdad.Size = new Size(244, 27);
+            txtEdad.TabIndex = 3;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(82, 304);
+            label5.Name = "label5";
+            label5.Size = new Size(43, 20);
+            label5.TabIndex = 9;
+            label5.Text = "Edad";
             // 
             // frmClientes
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 530);
+            Controls.Add(txtEdad);
+            Controls.Add(label5);
             Controls.Add(btnGuardar);
             Controls.Add(txtDireccion);
             Controls.Add(label4);
@@ -144,5 +164,7 @@
         private TextBox txtDireccion;
         private Label label4;
         private Button btnGuardar;
+        private TextBox txtEdad;
+        private Label label5;
     }
 }

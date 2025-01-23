@@ -19,8 +19,17 @@ namespace MyAplicacion
 
         private void frmCitas_Load(object sender, EventArgs e)
         {
+
+            //validar que el archivo existe
+            if (!System.IO.File.Exists(@"c:\BaseDatos\consultorio\clientes.txt"))
+            {
+                MessageBox.Show("No existe el archivo de clientes");
+                return;
+            }
+
+
             //leer el archivo
-            using (var sw = new StreamReader(@"c:\BaseDatos\clientes.txt"))
+            using (var sw = new StreamReader(@"c:\BaseDatos\consultorio\clientes.txt"))
             {
                 // validar que el id no exista en la lista de clientes en el archivo
 
@@ -41,7 +50,7 @@ namespace MyAplicacion
         private void button1_Click(object sender, EventArgs e)
         {
             //leer el archivo
-            using (var sw = new StreamReader(@"c:\BaseDatos\clientes.txt"))
+            using (var sw = new StreamReader(@"c:\BaseDatos\consultorio\clientes.txt"))
             {
                 // validar que el id no exista en la lista de clientes en el archivo
 
@@ -55,7 +64,7 @@ namespace MyAplicacion
                     {
                         lblNombre.Text = campos[1];
                         lblApellido.Text = campos[2];
-                        lblDireccion.Text = campos[3];
+                        lblDireccion.Text = campos[4];
                         return;
                     }
                 }

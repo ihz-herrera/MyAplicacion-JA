@@ -23,36 +23,42 @@ namespace MyAplicacion
             var id = txtId.Text;
             var nombre = txtNombre.Text;
             var apellido = txtApellido.Text;
+            var edad = txtEdad.Text;
             var direccion = txtDireccion.Text;
 
-            if(!(int.Parse(id) <= 0 || string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido) ||
+
+            if(!(int.Parse(id) <= 0 || string.IsNullOrEmpty(nombre) || int.Parse(edad) <18 || string.IsNullOrEmpty(apellido) ||
                 string.IsNullOrEmpty(direccion)))
             {
 
+                //validar que el archivo existe
 
-                //leer el archivo
-                using (var sw = new StreamReader(@"c:\BaseDatos\clientes.txt"))
+                if (System.IO.File.Exists(@"c:\BaseDatos\consultorio\clientes.txt"))
                 {
-                    // validar que el id no exista en la lista de clientes en el archivo
-
-                    while(  !sw.EndOfStream)
+                    //leer el archivo
+                    using (var sw = new StreamReader(@"c:\BaseDatos\consultorio\clientes.txt"))
                     {
-                        var linea = sw.ReadLine();
+                        // validar que el id no exista en la lista de clientes en el archivo
 
-                        var campos = linea.Split(",");
-
-                        if (campos[0]== id)
+                        while (!sw.EndOfStream)
                         {
-                            MessageBox.Show("Id Duplicado");
-                            return;
+                            var linea = sw.ReadLine();
+
+                            var campos = linea.Split(",");
+
+                            if (campos[0] == id)
+                            {
+                                MessageBox.Show("Id Duplicado");
+                                return;
+                            }
                         }
                     }
                 }
 
 
-                using (var sw = new System.IO.StreamWriter(@"c:\BaseDatos\clientes.txt", true))
+                using (var sw = new System.IO.StreamWriter(@"c:\BaseDatos\consultorio\clientes.txt", true))
                 {
-                    sw.WriteLine($"{id},{nombre},{apellido},{direccion}");
+                    sw.WriteLine($"{id},{nombre},{apellido},{edad},{direccion}");
                 }
 
             }
