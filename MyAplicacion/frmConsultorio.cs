@@ -6,5 +6,10 @@ namespace MyAplicacion
         {
             InitializeComponent();
         }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
