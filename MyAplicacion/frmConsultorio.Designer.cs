@@ -30,6 +30,7 @@
         {
             btnClientes = new Button();
             btnDoctores = new Button();
+            btnCitas = new Button();
             SuspendLayout();
             // 
             // btnClientes
@@ -51,11 +52,22 @@
             btnDoctores.Text = "Doctores";
             btnDoctores.UseVisualStyleBackColor = true;
             // 
+            // btnCitas
+            // 
+            btnCitas.Location = new Point(46, 242);
+            btnCitas.Name = "btnCitas";
+            btnCitas.Size = new Size(94, 29);
+            btnCitas.TabIndex = 2;
+            btnCitas.Text = "Citas";
+            btnCitas.UseVisualStyleBackColor = true;
+            btnCitas.Click += btnCitas_Click;
+            // 
             // FrmConsultorio
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(842, 487);
+            Controls.Add(btnCitas);
             Controls.Add(btnDoctores);
             Controls.Add(btnClientes);
             Name = "FrmConsultorio";
@@ -67,5 +79,6 @@
 
         private Button btnClientes;
         private Button btnDoctores;
+        private Button btnCitas;
     }
 }
