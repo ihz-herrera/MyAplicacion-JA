@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Consultorio.Infraestructura.Entidades;
+using Microsoft.EntityFrameworkCore;
 using MyAplicacion.Entidades;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace MyAplicacion
     public class Contexto : DbContext
     {
         public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Doctor> Doctores { get; set; }
 
         public Contexto() { 
             
@@ -32,6 +34,32 @@ namespace MyAplicacion
             modelBuilder.Entity<Cliente>()
                 .Property(e => e.Nombre)
                 .HasColumnName("Descripcion")
+                .HasMaxLength(50);
+
+
+            modelBuilder.Entity<Doctor>()
+                .ToTable("genDoctoresCat")
+                .HasKey(e => e.Id)
+                ;
+
+            modelBuilder.Entity<Doctor>()
+                .Property(e => e.Nombre)
+                .HasColumnName("Descripcion")
+                .HasMaxLength(50);
+
+            modelBuilder.Entity<Doctor>()
+                .Property(e => e.Direccion)
+                .HasColumnName("Direccion")
+                .HasMaxLength(50);
+
+            modelBuilder.Entity<Doctor>()
+                .Property(e => e.Telefono)
+                .HasColumnName("Telefono")
+                .HasMaxLength(50);
+
+            modelBuilder.Entity<Doctor>()
+                .Property(e => e.Email)
+                .HasColumnName("Email")
                 .HasMaxLength(50);
 
 
