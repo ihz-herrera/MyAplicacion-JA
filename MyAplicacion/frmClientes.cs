@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyAplicacion.Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,57 +20,42 @@ namespace MyAplicacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            //guardar cliente en un archivo de texto
-            var id = txtId.Text;
-            var nombre = txtNombre.Text;
-            var apellido = txtApellido.Text;
-            var edad = txtEdad.Text;
-            var direccion = txtDireccion.Text;
 
-
-            if(!(int.Parse(id) <= 0 || string.IsNullOrEmpty(nombre) || int.Parse(edad) <18 || string.IsNullOrEmpty(apellido) ||
-                string.IsNullOrEmpty(direccion)))
+            try
             {
+                var cliente = new Cliente(
+                int.Parse(txtId.Text),
+                txtNombre.Text,
+                txtApellido.Text,
+                int.Parse(txtEdad.Text),
+                txtDireccion.Text
+                );
 
-                //validar que el archivo existe
+                var db = new TxtDatabase();
+                db.Guardar(cliente);
+                MessageBox.Show("Cliente guardado");
 
-                if (System.IO.File.Exists(@"c:\BaseDatos\consultorio\clientes.txt"))
-                {
-                    //leer el archivo
-                    using (var sw = new StreamReader(@"c:\BaseDatos\consultorio\clientes.txt"))
-                    {
-                        // validar que el id no exista en la lista de clientes en el archivo
-
-                        while (!sw.EndOfStream)
-                        {
-                            var linea = sw.ReadLine();
-
-                            var campos = linea.Split(",");
-
-                            if (campos[0] == id)
-                            {
-                                MessageBox.Show("Id Duplicado");
-                                return;
-                            }
-                        }
-                    }
-                }
-
-
-                using (var sw = new System.IO.StreamWriter(@"c:\BaseDatos\consultorio\clientes.txt", true))
-                {
-                    sw.WriteLine($"{id},{nombre},{apellido},{edad},{direccion}");
-                }
+                InicializarControles();
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error: Error inesperado. Comuniquese con su departamento de soporte");
 
             }
-            else
-            {
-                MessageBox.Show("Valores ingresados incorrectos.");
-            }
 
+        }
 
-
-
+        private void InicializarControles()
+        {
+            txtApellido.Text = string.Empty;
+            txtDireccion.Text = string.Empty;
+            txtEdad.Text = string.Empty;
+            txtId.Text = string.Empty;
+            txtNombre.Text = string.Empty;
         }
     }
 }
