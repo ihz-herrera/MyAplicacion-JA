@@ -1,18 +1,22 @@
 ﻿using MyAplicacion.Entidades;
+using MyAplicacion.Fabricas;
 
 namespace MyAplicacion;
 
 public partial class frmCitas : Form
 {
-    public frmCitas()
+    private string _dbType;
+
+    public frmCitas(string dbType)
     {
         InitializeComponent();
+        _dbType = dbType;
     }
 
     private void frmCitas_Load(object sender, EventArgs e)
     {
 
-        var db = new TxtDatabase();
+        var db = RepoFactory.CrearRepository(_dbType);
         var clientes = db.Leer();
         cmbClientes.DataSource = clientes;
         cmbClientes.DisplayMember = "Nombre";

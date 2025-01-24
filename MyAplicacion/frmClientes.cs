@@ -1,4 +1,6 @@
 ﻿using MyAplicacion.Entidades;
+using MyAplicacion.Fabricas;
+using MyAplicacion.Repositorio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +15,13 @@ namespace MyAplicacion
 {
     public partial class frmClientes : Form
     {
-        public frmClientes()
+
+        private string baseDatos = "sqlite";
+
+        public frmClientes(string baseDatos)
         {
             InitializeComponent();
+            this.baseDatos = baseDatos;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -31,8 +37,28 @@ namespace MyAplicacion
                 txtDireccion.Text
                 );
 
-                var db = new TxtDatabase();
+
+
+                var db = RepoFactory.CrearRepository(baseDatos);
+
                 db.Guardar(cliente);
+
+
+                //if (baseDatos == "txt")
+                //{
+                //    var db = new TxtRepository();
+                //    db.GuardarClienteTxt(cliente);
+                //}
+                //else if (baseDatos == "sqlite")
+                //{
+                //    var dbsqlite = new SqliteRepository();
+                //    dbsqlite.GuardarClienteSqlite(cliente);
+                //}
+                //else if (baseDatos == "sqlserver")
+                //    db.GuardarClienteSqlServer(cliente);
+
+
+
                 MessageBox.Show("Cliente guardado");
 
                 InicializarControles();
