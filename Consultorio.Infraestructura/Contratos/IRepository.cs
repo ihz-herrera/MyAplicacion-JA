@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyAplicacion.Contratos
 {
-    internal interface IRepository
+    public interface IRepository
     {
         void Guardar(Cliente cliente);
         List<Cliente> Leer();

@@ -16,4 +16,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Consultorio.Infraestructura\Consultorio.Infraestructura.csproj" />
+  </ItemGroup>
+
 </Project>

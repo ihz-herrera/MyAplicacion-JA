@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MyAplicacion.Fabricas
 {
-    internal class RepoFactory
+    public class RepoFactory
     {
 
         public static IRepository CrearRepository(string tipo)

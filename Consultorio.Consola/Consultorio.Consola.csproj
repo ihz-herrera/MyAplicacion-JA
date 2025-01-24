@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Consultorio.Infraestructura\Consultorio.Infraestructura.csproj" />
+  </ItemGroup>
+
 </Project>
