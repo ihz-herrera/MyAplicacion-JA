@@ -11,19 +11,29 @@ namespace MyAplicacion.Repositorio
     public class SqlServerRepository:IRepository
     {
 
+
         public void Guardar(Cliente cliente)
         {
-            throw new NotImplementedException();
+            if (Buscar(cliente.Id))
+                throw new InvalidOperationException("Id Duplicado");
+
+            var contexto = new Contexto();
+            contexto.Clientes.Add(cliente);
+            contexto.SaveChanges();
+
         }
 
         public List<Cliente> Leer()
         {
-            throw new NotImplementedException();
+            var contexto = new Contexto();
+            return contexto.Clientes.ToList();
         }
 
         public bool Buscar(int id)
         {
-            throw new NotImplementedException();
+            var contexto = new Contexto();
+            return contexto.Clientes.Any(x => x.Id == id);
         }
+
     }
 }

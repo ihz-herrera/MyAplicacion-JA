@@ -1,13 +1,14 @@
-﻿using MyAplicacion.Entidades;
+﻿using Consultorio.Applicacion.Fabricas.Enumeradores;
+using MyAplicacion.Entidades;
 using MyAplicacion.Fabricas;
 
 namespace MyAplicacion;
 
 public partial class frmCitas : Form
 {
-    private string _dbType;
+    private DbTypeEnum _dbType;
 
-    public frmCitas(string dbType)
+    public frmCitas(DbTypeEnum dbType)
     {
         InitializeComponent();
         _dbType = dbType;

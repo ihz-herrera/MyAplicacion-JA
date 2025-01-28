@@ -1,4 +1,5 @@
-﻿using MyAplicacion.Entidades;
+﻿using Consultorio.Applicacion.Fabricas.Enumeradores;
+using MyAplicacion.Entidades;
 using MyAplicacion.Fabricas;
 using MyAplicacion.Repositorio;
 using System;
@@ -16,9 +17,9 @@ namespace MyAplicacion
     public partial class frmClientes : Form
     {
 
-        private string baseDatos = "sqlite";
+        private DbTypeEnum baseDatos = DbTypeEnum.Txt;
 
-        public frmClientes(string baseDatos)
+        public frmClientes(DbTypeEnum baseDatos)
         {
             InitializeComponent();
             this.baseDatos = baseDatos;

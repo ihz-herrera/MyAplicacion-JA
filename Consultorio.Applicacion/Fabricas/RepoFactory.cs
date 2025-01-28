@@ -1,25 +1,21 @@
-﻿using MyAplicacion.Contratos;
+﻿using Consultorio.Applicacion.Fabricas.Enumeradores;
+using MyAplicacion.Contratos;
 using MyAplicacion.Repositorio;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyAplicacion.Fabricas
 {
     public class RepoFactory
     {
 
-        public static IRepository CrearRepository(string tipo)
+        public static IRepository CrearRepository(DbTypeEnum tipo)
         {
             switch (tipo)
             {
-                case "txt":
+                case  DbTypeEnum.Txt:
                     return new TxtRepository();
-                case "sqlite":
+                case DbTypeEnum.Sqlite :
                     return new SqliteRepository();
-                case "sqlserver":
+                case DbTypeEnum.SqlServer:
                     return new SqlServerRepository();
                 default:
                     throw new InvalidOperationException("Tipo de repositorio no soportado");

@@ -13,7 +13,7 @@ namespace MyAplicacion
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=C:\\BaseDatos\\MyAplicacion.db");
+            optionsBuilder.UseSqlServer("server=.; initial catalog=myapplication02; trusted_connection=true; encrypt=false");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -21,7 +21,7 @@ namespace MyAplicacion
             //mapear entidad cliente
             modelBuilder.Entity<Cliente>()
                 .ToTable("genClientesCat")
-                .HasKey(e=> e.Id)
+                .HasKey(e=> e.Id)               
                 ;
 
             modelBuilder.Entity<Cliente>()

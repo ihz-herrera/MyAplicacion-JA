@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Consultorio.Infraestructura\Consultorio.Infraestructura.csproj" />
+    <ProjectReference Include="..\Consultorio.Applicacion\Consultorio.Applicacion.csproj" />
   </ItemGroup>
 
 </Project>

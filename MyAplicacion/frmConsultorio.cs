@@ -1,8 +1,10 @@
+using Consultorio.Applicacion.Fabricas.Enumeradores;
+
 namespace MyAplicacion
 {
     public partial class FrmConsultorio : Form
     {
-        private string baseDatos = "txt";
+        private DbTypeEnum baseDatos =  DbTypeEnum.SqlServer;
         public FrmConsultorio()
         {
             InitializeComponent();
